@@ -16,7 +16,7 @@ class _WebViewState extends State<WebView> {
   void initState() {
     super.initState();
     controller = WebViewController()..loadRequest(
-      Uri.parse('https://calculateall.net/blog')
+      Uri.parse('https://indeed.com')
     );
   }
 

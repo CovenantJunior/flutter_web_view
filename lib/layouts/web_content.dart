@@ -38,14 +38,16 @@ class _WebContentState extends State<WebContent> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        WebViewWidget(controller: widget.controller),
-        if(progress < 100) 
-          const Center(
-            child: CircularProgressIndicator()
-          )
-      ],
+    return SafeArea(
+      child: Stack(
+        children: [
+          WebViewWidget(controller: widget.controller),
+          if(progress < 100) 
+            const Center(
+              child: CircularProgressIndicator()
+            )
+        ],
+      ),
     );
   }
 }

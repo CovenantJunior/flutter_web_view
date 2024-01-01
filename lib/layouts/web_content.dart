@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class WebContent extends StatefulWidget {
@@ -38,16 +39,26 @@ class _WebContentState extends State<WebContent> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 20),
-      child: Stack(
-        children: [
-          WebViewWidget(controller: widget.controller),
-          if(progress < 100) 
-            const Center(
-              child: CircularProgressIndicator()
-            )
-        ],
+    return WillPopScope(
+      onWillPop: () async {
+        if (await widget.controller.canGoBack()) {
+          widget.controller.goBack();
+          return false; // Consume the back press
+        } else {
+          SystemNavigator.pop();
+          return true; // Allow leaving the current screen
+        }
+      },
+      child: SafeArea(
+        child: Stack(
+          children: [
+            WebViewWidget(controller: widget.controller),
+            if(progress < 100) 
+              const Center(
+                child: CircularProgressIndicator()
+              )
+          ],
+        ),
       ),
     );
   }

@@ -38,7 +38,8 @@ class _WebContentState extends State<WebContent> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 20),
       child: Stack(
         children: [
           WebViewWidget(controller: widget.controller),

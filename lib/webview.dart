@@ -11,11 +11,12 @@ class WebView extends StatefulWidget {
 class _WebViewState extends State<WebView> {
   late final WebViewController controller;
 
-  void() {
+  @override
+  void initState() {
     super.initState();
     controller = WebViewController()..loadRequest(
       Uri.parse('https://youtube.com/')
-    )
+    );
   }
 
   @override

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_web_view/webview.dart';
+import 'package:flutter_web_view/layouts/webview_activity.dart';
 
 void main() {
   runApp(const MyApp());

@@ -34,7 +34,7 @@ class _WebContentState extends State<WebContent> {
             progress = 100;
           });
         },
-      )
+      ),
     );
   }
 
@@ -45,6 +45,7 @@ class _WebContentState extends State<WebContent> {
       onPopInvoked: (bool isClosing) async {
         if (await widget.controller.canGoBack()) {
           widget.controller.goBack();
+          widget.controller.getTitle().then((value) => print(value));
         } else {
           // If there's no history to navigate back, leave the current screen
           SystemNavigator.pop();

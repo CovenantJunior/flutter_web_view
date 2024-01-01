@@ -11,13 +11,16 @@ class WebView extends StatefulWidget {
 
 class _WebViewState extends State<WebView> {
   late final WebViewController controller;
+  
 
   @override
   void initState() {
     super.initState();
     controller = WebViewController()..loadRequest(
       Uri.parse('https://indeed.com')
-    );
+    )..setJavaScriptMode(JavaScriptMode.unrestricted)..addJavaScriptChannel('SnackBar', onMessageReceived: (message) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message.message)) );
+    });
   }
 
   @override

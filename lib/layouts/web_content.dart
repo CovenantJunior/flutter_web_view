@@ -38,6 +38,10 @@ class _WebContentState extends State<WebContent> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Stack(
+      children: [
+        WebViewWidget(controller: widget.controller)
+      ],
+    );
   }
 }

@@ -42,10 +42,8 @@ class _WebContentState extends State<WebContent> {
       children: [
         WebViewWidget(controller: widget.controller),
         if(progress < 100) 
-          Center(
-            child: CircularProgressIndicator(
-              value: progress / 100.0,
-            )
+          const Center(
+            child: CircularProgressIndicator()
           )
       ],
     );

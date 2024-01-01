@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class WebView extends StatefulWidget {
   const WebView({super.key});
@@ -8,6 +9,15 @@ class WebView extends StatefulWidget {
 }
 
 class _WebViewState extends State<WebView> {
+  late final WebViewController controller;
+
+  void() {
+    super.initState();
+    controller = WebViewController()..loadRequest(
+      Uri.parse('https://youtube.com/')
+    )
+  }
+
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

@@ -17,7 +17,7 @@ class _WebViewState extends State<WebView> {
   void initState() {
     super.initState();
     controller = WebViewController()..loadRequest(
-      Uri.parse('https://indeed.com')
+      Uri.parse('https://calculateall.net')
     )..setJavaScriptMode(JavaScriptMode.unrestricted)..addJavaScriptChannel('SnackBar', onMessageReceived: (message) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message.message)) );
     });

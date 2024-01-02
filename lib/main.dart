@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor: Colors.black, // Make the status bar transparent
+      statusBarColor: Colors.transparent, // Make the status bar transparent
     ));
     return MaterialApp(
       debugShowCheckedModeBanner: false,

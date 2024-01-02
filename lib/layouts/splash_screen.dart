@@ -38,9 +38,15 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
         decoration: const BoxDecoration(
           color: Colors.black
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(70.0),
-          child: Image.asset('images/calculate.png'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(100.0),
+              child: Image.asset('images/calculate.png'),
+            ),
+            const CircularProgressIndicator()
+          ],
         ),
       ),
     );

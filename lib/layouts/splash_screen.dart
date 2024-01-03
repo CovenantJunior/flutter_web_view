@@ -22,12 +22,12 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
     });
   }
   
-  @override
+  /* @override
   void dispose() {
     // Reset system UI mode to default when disposing of the screen
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
     super.dispose();
-  }
+  } */
   
   @override
   Widget build(BuildContext context) {

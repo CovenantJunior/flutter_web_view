@@ -51,18 +51,16 @@ class _WebContentState extends State<WebContent> {
           SystemNavigator.pop();
         }
       },
-      child: SafeArea(
-        child: Stack(
-          children: [
-            WebViewWidget(
-              controller: widget.controller,
-            ),
-            if(progress < 100) 
-              const Center(
-                child: CircularProgressIndicator()
-              )
-          ],
-        ),
+      child: Stack(
+        children: [
+          WebViewWidget(
+            controller: widget.controller,
+          ),
+          if(progress < 100) 
+            const Center(
+              child: CircularProgressIndicator()
+            )
+        ],
       ),
     );
   }

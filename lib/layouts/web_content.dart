@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 // import 'package:flutter/services.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -20,6 +21,10 @@ class _WebContentState extends State<WebContent> {
     widget.controller.setNavigationDelegate(
       NavigationDelegate(
         onPageStarted: (url) {
+          if (!url.startsWith('https://calculateall.net')) {
+            Navigator.pop(context);
+            launchURL(url);
+          }
           setState(() {
             progress = 0;
           });
@@ -63,5 +68,13 @@ class _WebContentState extends State<WebContent> {
         ],
       ),
     );
+  }
+
+  Future<void> launchURL(url) async {
+    if (await canLaunch(url)) {
+      await launch(url, forceSafariVC: false, forceWebView: false);
+    } else {
+      throw Exception('Could not launch $url');
+    }
   }
 }

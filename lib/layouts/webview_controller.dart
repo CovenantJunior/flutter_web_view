@@ -19,12 +19,12 @@ class WebView extends StatefulWidget {
 
 class _WebViewState extends State<WebView> {
   late final WebViewController controller;
-
+  String url = 'https://calculateall.net';
   @override
   void initState() {
     super.initState();
     controller = WebViewController()..loadRequest(
-      Uri.parse('https://calculateall.net')
+      Uri.parse(url)
     )..setJavaScriptMode(JavaScriptMode.unrestricted)..addJavaScriptChannel('SnackBar', onMessageReceived: (message) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message.message)) );
     });

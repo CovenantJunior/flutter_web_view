@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_web_view/layouts/splash_screen.dart';
-import 'package:flutter_web_view/layouts/webview_controller.dart';
+import 'package:calculate_all/layouts/splash_screen.dart';
+import 'package:calculate_all/layouts/webview_controller.dart';
 
 void main() {
   runApp(const MyApp());
